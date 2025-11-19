@@ -4,7 +4,11 @@ import yfinance as yf
 import requests
 from datetime import datetime, timedelta
 import io
+st.set_page_config(page_title="Dark Pool Screener", layout="wide")
 
+# === PREVENT ABUSE & STAY UNDER FREE LIMITS ===
+st.cache_data(ttl=86400)        # cache everything for 24h
+st.cache_resource(ttl=86400)    # same for resources
 # =============================================
 # 1. Download single FINRA day
 # =============================================
