@@ -3,6 +3,9 @@ import polars as pl
 from datetime import datetime
 import io
 
+@st.cache_data(ttl="24h", show_spinner="Updating daily FINRA data...")
+def load_data(lookback_days: int = 1):
+    
 def download_today():
     date_str = datetime.now().strftime("%Y%m%d")
     url = f"https://cdn.finra.org/equity/regsho/daily/CNMSshvol{date_str}.txt"
